@@ -117,7 +117,8 @@ def pipeline_lock() -> threading.Lock:
     return threading.Lock()
 
 
-@st.cache_resource
+# @st.cache_resource
+@st.cache(allow_output_mutation=True)
 def load_stable_diffusion_img2img_pipeline(
     checkpoint: str = DEFAULT_CHECKPOINT,
     device: str = "cuda",
