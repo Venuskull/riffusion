@@ -3,8 +3,8 @@ import typing as T
 import numpy as np
 from PIL import Image
 
-from riffusion.cli import audio_to_image
-from riffusion.spectrogram_params import SpectrogramParams
+from riffusion_local.cli import audio_to_image
+from riffusion_local.spectrogram_params import SpectrogramParams
 
 from .test_case import TestCase
 

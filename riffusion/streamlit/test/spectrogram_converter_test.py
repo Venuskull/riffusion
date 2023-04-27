@@ -2,25 +2,24 @@ import dataclasses
 import typing as T
 
 import pydub
-from PIL import Image
 
-from riffusion.spectrogram_image_converter import SpectrogramImageConverter
-from riffusion.spectrogram_params import SpectrogramParams
-from riffusion.util import fft_util
+from riffusion_local.spectrogram_converter import SpectrogramConverter
+from riffusion_local.spectrogram_params import SpectrogramParams
+from util_local import fft_util
 
 from .test_case import TestCase
 
 
-class SpectrogramImageConverterTest(TestCase):
+class SpectrogramConverterTest(TestCase):
     """
-    Test going from audio to spectrogram images to audio, testing the quality loss of the
-    end-to-end pipeline.
+    Test going from audio to spectrogram to audio, without converting to
+    an image, to check quality loss of the reconstruction.
 
     This test allows comparing multiple sets of spectrogram params by listening to output audio
     and by plotting their FFTs.
-
-    See spectrogram_converter_test.py for a similar test that does not convert to images.
     """
+
+    # TODO(hayk): Do an ablation of Griffin Lim and how much loss that introduces.
 
     def test_round_trip(self) -> None:
         audio_path = (
@@ -29,7 +28,7 @@ class SpectrogramImageConverterTest(TestCase):
             / "clips"
             / "clip_2_start_103694_ms_duration_5678_ms.wav"
         )
-        output_dir = self.get_tmp_dir(prefix="spectrogram_image_round_trip_test_")
+        output_dir = self.get_tmp_dir(prefix="spectrogram_round_trip_test_")
 
         # Load up the audio file
         segment = pydub.AudioSegment.from_file(audio_path)
@@ -63,20 +62,10 @@ class SpectrogramImageConverterTest(TestCase):
         segments: T.Dict[str, pydub.AudioSegment] = {
             "original": segment,
         }
-        images: T.Dict[str, Image.Image] = {}
         for name, params in param_sets.items():
-            converter = SpectrogramImageConverter(params=params, device=self.DEVICE)
-            images[name] = converter.spectrogram_image_from_audio(segment)
-            segments[name] = converter.audio_from_spectrogram_image(
-                image=images[name],
-                apply_filters=True,
-            )
-
-        # Save images to disk
-        for name, image in images.items():
-            image_out = output_dir / f"{name}.png"
-            image.save(image_out, exif=image.getexif(), format="PNG")
-            print(f"Saved {image_out}")
+            converter = SpectrogramConverter(params=params, device=self.DEVICE)
+            spectrogram = converter.spectrogram_from_audio(segment)
+            segments[name] = converter.audio_from_spectrogram(spectrogram, apply_filters=True)
 
         # Save segments to disk
         for name, segment in segments.items():
