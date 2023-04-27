@@ -7,11 +7,11 @@ import pydub
 import streamlit as st
 from PIL import Image
 
-from riffusion.datatypes import InferenceInput, PromptInput
-from riffusion.spectrogram_params import SpectrogramParams
-from riffusion.streamlit import util as streamlit_util
-from riffusion.streamlit.tasks.interpolation import get_prompt_inputs, run_interpolation
-from riffusion.util import audio_util
+from riffusion_local.datatypes import InferenceInput, PromptInput
+from riffusion_local.spectrogram_params import SpectrogramParams
+from riffusion_local.streamlit import util as streamlit_util
+from riffusion_local.streamlit.tasks.interpolation import get_prompt_inputs, run_interpolation
+from riffusion_local.util import audio_util
 
 
 def render() -> None:

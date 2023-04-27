@@ -4,9 +4,9 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 
-from riffusion.spectrogram_params import SpectrogramParams
-from riffusion.streamlit import util as streamlit_util
-from riffusion.util.image_util import exif_from_image
+from riffusion_local.spectrogram_params import SpectrogramParams
+from riffusion_local.streamlit import util as streamlit_util
+from riffusion_local.util.image_util import exif_from_image
 
 
 def render() -> None:

@@ -4,9 +4,9 @@ import typing as T
 import pydub
 from PIL import Image
 
-from riffusion.spectrogram_image_converter import SpectrogramImageConverter
-from riffusion.spectrogram_params import SpectrogramParams
-from riffusion.util import fft_util
+from riffusion_local.spectrogram_image_converter import SpectrogramImageConverter
+from riffusion_local.spectrogram_params import SpectrogramParams
+from riffusion_local.util import fft_util
 
 from .test_case import TestCase
 

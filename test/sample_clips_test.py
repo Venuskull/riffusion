@@ -2,7 +2,7 @@ import typing as T
 
 import pydub
 
-from riffusion.cli import sample_clips
+from riffusion_local.cli import sample_clips
 
 from .test_case import TestCase
 

@@ -1,9 +1,9 @@
 import numpy as np
 import pydub
 
-from riffusion.spectrogram_converter import SpectrogramConverter
-from riffusion.spectrogram_params import SpectrogramParams
-from riffusion.util import image_util
+from riffusion_local.spectrogram_converter import SpectrogramConverter
+from riffusion_local.spectrogram_params import SpectrogramParams
+from riffusion_local.util import image_util
 
 from .test_case import TestCase
 

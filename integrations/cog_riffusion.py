@@ -13,10 +13,10 @@ import PIL
 import torch
 from cog import BaseModel, BasePredictor, Input, Path
 
-from riffusion.datatypes import InferenceInput, PromptInput
-from riffusion.riffusion_pipeline import RiffusionPipeline
-from riffusion.spectrogram_image_converter import SpectrogramImageConverter
-from riffusion.spectrogram_params import SpectrogramParams
+from riffusion_local.datatypes import InferenceInput, PromptInput
+from riffusion_local.riffusion_pipeline import RiffusionPipeline
+from riffusion_local.spectrogram_image_converter import SpectrogramImageConverter
+from riffusion_local.spectrogram_params import SpectrogramParams
 
 MODEL_ID = "riffusion/riffusion-model-v1"
 MODEL_CACHE = "riffusion-cache"
