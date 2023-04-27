@@ -22,7 +22,7 @@ class SpectrogramImageConverter:
 
     def spectrogram_image_from_audio(
         self,
-        segment: pydub.AudioSegment,
+        _segment: pydub.AudioSegment,
     ) -> Image.Image:
         """
         Compute a spectrogram image from an audio segment.
@@ -33,21 +33,21 @@ class SpectrogramImageConverter:
         Returns:
             Spectrogram image (in pillow format)
         """
-        assert int(segment.frame_rate) == self.p.sample_rate, "Sample rate mismatch"
+        assert int(_segment.frame_rate) == self.p.sample_rate, "Sample rate mismatch"
 
         if self.p.stereo:
-            if segment.channels == 1:
+            if _segment.channels == 1:
                 print("WARNING: Mono audio but stereo=True, cloning channel")
-                segment = segment.set_channels(2)
-            elif segment.channels > 2:
+                _segment = _segment.set_channels(2)
+            elif _segment.channels > 2:
                 print("WARNING: Multi channel audio, reducing to stereo")
-                segment = segment.set_channels(2)
+                _segment = _segment.set_channels(2)
         else:
-            if segment.channels > 1:
+            if _segment.channels > 1:
                 print("WARNING: Stereo audio but stereo=False, setting to mono")
-                segment = segment.set_channels(1)
+                _segment = _segment.set_channels(1)
 
-        spectrogram = self.converter.spectrogram_from_audio(segment)
+        spectrogram = self.converter.spectrogram_from_audio(_segment)
 
         image = image_util.image_from_spectrogram(
             spectrogram,
@@ -83,9 +83,9 @@ class SpectrogramImageConverter:
             stereo=self.p.stereo,
         )
 
-        segment = self.converter.audio_from_spectrogram(
+        _segment = self.converter.audio_from_spectrogram(
             spectrogram,
             apply_filters=apply_filters,
         )
 
-        return segment
+        return _segment
