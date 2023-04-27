@@ -8,9 +8,9 @@ import pydub
 import streamlit as st
 from PIL import Image
 
-from riffusion.datatypes import InferenceInput, PromptInput
-from riffusion.spectrogram_params import SpectrogramParams
-from riffusion.streamlit import util as streamlit_util
+from riffusion_local.datatypes import InferenceInput, PromptInput
+from riffusion_local.spectrogram_params import SpectrogramParams
+from streamlit import util as streamlit_util
 
 
 def render() -> None:

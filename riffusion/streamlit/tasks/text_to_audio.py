@@ -2,8 +2,8 @@ import typing as T
 
 import streamlit as st
 
-from riffusion.spectrogram_params import SpectrogramParams
-from riffusion.streamlit import util as streamlit_util
+from riffusion_local.spectrogram_params import SpectrogramParams
+from streamlit import util as streamlit_util
 
 
 def render() -> None:
