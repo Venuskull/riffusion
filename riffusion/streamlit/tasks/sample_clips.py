@@ -7,7 +7,7 @@ import pydub
 import streamlit as st
 
 from riffusion_local.spectrogram_params import SpectrogramParams
-from streamlit import util as streamlit_util
+from util_local import util as streamlit_util
 
 
 def render() -> None:

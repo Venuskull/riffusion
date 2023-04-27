@@ -9,7 +9,7 @@ from PIL import Image
 
 from riffusion_local.datatypes import InferenceInput, PromptInput
 from riffusion_local.spectrogram_params import SpectrogramParams
-from streamlit import util as streamlit_util
+from util_local import util as streamlit_util
 from tasks.interpolation import get_prompt_inputs, run_interpolation
 from util_local import audio_util
 
