@@ -194,12 +194,12 @@ def spectrogram_image_converter(
 
 @st.cache_data
 def spectrogram_image_from_audio(
-    segment: pydub.AudioSegment,
+    _segment: pydub.AudioSegment,
     params: SpectrogramParams,
     device: str = "cuda",
 ) -> Image.Image:
     converter = spectrogram_image_converter(params=params, device=device)
-    return converter.spectrogram_image_from_audio(segment)
+    return converter.spectrogram_image_from_audio(_segment)
 
 
 @st.cache_data
@@ -362,7 +362,7 @@ def run_img2img(
     checkpoint: str = DEFAULT_CHECKPOINT,
     device: str = "cuda",
     scheduler: str = SCHEDULER_OPTIONS[0],
-    progress_callback: T.Optional[T.Callable[[float], T.Any]] = None,
+    _progress_callback: T.Optional[T.Callable[[float], T.Any]] = None,
 ) -> Image.Image:
     with pipeline_lock():
         pipeline = load_stable_diffusion_img2img_pipeline(
@@ -377,8 +377,8 @@ def run_img2img(
         num_expected_steps = max(int(num_inference_steps * denoising_strength), 1)
 
         def callback(step: int, tensor: torch.Tensor, foo: T.Any) -> None:
-            if progress_callback is not None:
-                progress_callback(step / num_expected_steps)
+            if _progress_callback is not None:
+                _progress_callback(step / num_expected_steps)
 
         result = pipeline(
             prompt=prompt,
