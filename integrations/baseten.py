@@ -12,9 +12,9 @@ import dacite
 import torch
 from huggingface_hub import snapshot_download
 
-from riffusion_local.datatypes import InferenceInput
-from riffusion_local.riffusion_pipeline import RiffusionPipeline
-from riffusion_local.server import compute_request
+from riffusion.datatypes import InferenceInput
+from riffusion.riffusion_pipeline import RiffusionPipeline
+from riffusion.server import compute_request
 
 
 class Model:

@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pydub
 
-from riffusion_local.cli import image_to_audio
+from riffusion.cli import image_to_audio
 
 from .test_case import TestCase
 

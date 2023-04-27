@@ -7,7 +7,7 @@ import typing as T
 import numpy as np
 from PIL import Image
 
-from riffusion_local.spectrogram_params import SpectrogramParams
+from riffusion.spectrogram_params import SpectrogramParams
 
 
 def image_from_spectrogram(spectrogram: np.ndarray, power: float = 0.25) -> Image.Image:

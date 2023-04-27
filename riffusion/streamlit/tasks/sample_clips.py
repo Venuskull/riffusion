@@ -6,8 +6,8 @@ import numpy as np
 import pydub
 import streamlit as st
 
-from riffusion_local.spectrogram_params import SpectrogramParams
-from riffusion_local.streamlit import util as streamlit_util
+from riffusion.spectrogram_params import SpectrogramParams
+from riffusion.streamlit import util as streamlit_util
 
 
 def render() -> None:

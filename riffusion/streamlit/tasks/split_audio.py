@@ -4,9 +4,9 @@ from pathlib import Path
 import pydub
 import streamlit as st
 
-from riffusion_local.audio_splitter import split_audio
-from riffusion_local.streamlit import util as streamlit_util
-from riffusion_local.util import audio_util
+from riffusion.audio_splitter import split_audio
+from riffusion.streamlit import util as streamlit_util
+from riffusion.util import audio_util
 
 
 def render() -> None:

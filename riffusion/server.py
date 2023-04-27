@@ -15,11 +15,11 @@ import flask
 import PIL
 from flask_cors import CORS
 
-from riffusion_local.datatypes import InferenceInput, InferenceOutput
-from riffusion_local.riffusion_pipeline import RiffusionPipeline
-from riffusion_local.spectrogram_image_converter import SpectrogramImageConverter
-from riffusion_local.spectrogram_params import SpectrogramParams
-from riffusion_local.util import base64_util
+from riffusion.datatypes import InferenceInput, InferenceOutput
+from riffusion.riffusion_pipeline import RiffusionPipeline
+from riffusion.spectrogram_image_converter import SpectrogramImageConverter
+from riffusion.spectrogram_params import SpectrogramParams
+from riffusion.util import base64_util
 
 # Flask app with CORS
 app = flask.Flask(__name__)

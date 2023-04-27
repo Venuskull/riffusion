@@ -11,10 +11,10 @@ import torch
 from diffusers import DiffusionPipeline, StableDiffusionImg2ImgPipeline, StableDiffusionPipeline
 from PIL import Image
 
-from riffusion_local.audio_splitter import AudioSplitter
-from riffusion_local.riffusion_pipeline import RiffusionPipeline
-from riffusion_local.spectrogram_image_converter import SpectrogramImageConverter
-from riffusion_local.spectrogram_params import SpectrogramParams
+from riffusion.audio_splitter import AudioSplitter
+from riffusion.riffusion_pipeline import RiffusionPipeline
+from riffusion.spectrogram_image_converter import SpectrogramImageConverter
+from riffusion.spectrogram_params import SpectrogramParams
 
 # TODO(hayk): Add URL params
 

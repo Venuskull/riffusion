@@ -19,9 +19,9 @@ from huggingface_hub import hf_hub_download
 from PIL import Image
 from transformers import CLIPFeatureExtractor, CLIPTextModel, CLIPTokenizer
 
-from riffusion_local.datatypes import InferenceInput
-from riffusion_local.external.prompt_weighting import get_weighted_text_embeddings
-from riffusion_local.util import torch_util
+from riffusion.datatypes import InferenceInput
+from riffusion.external.prompt_weighting import get_weighted_text_embeddings
+from riffusion.util import torch_util
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 
