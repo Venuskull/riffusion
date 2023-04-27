@@ -10,7 +10,7 @@ import torch
 import torchaudio
 from torchaudio.transforms import Fade
 
-from riffusion.util import audio_util
+from util_local import audio_util
 
 
 def split_audio(
