@@ -1,5 +1,6 @@
 accelerate
 argh
+click
 dacite
 demucs
 diffusers>=0.9.0
