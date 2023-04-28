@@ -138,6 +138,8 @@ def load_stable_diffusion_img2img_pipeline(
         print(f"WARNING: Falling back to float32 on {device}, float16 is unsupported")
         dtype = torch.float32
 
+    print('Processing pipeline from_pretrained **************************************')
+
     pipeline = StableDiffusionImg2ImgPipeline.from_pretrained(
         checkpoint,
         revision="main",
