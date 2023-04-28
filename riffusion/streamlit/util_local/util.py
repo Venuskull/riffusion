@@ -143,7 +143,7 @@ def load_stable_diffusion_img2img_pipeline(
         revision="main",
         torch_dtype=dtype,
         # safety_checker=lambda images, **kwargs: (images, False),
-        safety_checker=check_safety,
+        # safety_checker=check_safety,
     ).to(device)
 
     pipeline.scheduler = get_scheduler(scheduler, config=pipeline.scheduler.config)
