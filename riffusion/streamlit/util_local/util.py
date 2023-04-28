@@ -117,6 +117,10 @@ def pipeline_lock() -> threading.Lock:
     return threading.Lock()
 
 
+def check_safety(images, **kwargs):
+    return images, False
+
+
 # @st.cache_resource
 # @st.cache(allow_output_mutation=True)
 def load_stable_diffusion_img2img_pipeline(
@@ -138,7 +142,8 @@ def load_stable_diffusion_img2img_pipeline(
         checkpoint,
         revision="main",
         torch_dtype=dtype,
-        safety_checker=lambda images, **kwargs: (images, False),
+        # safety_checker=lambda images, **kwargs: (images, False),
+        safety_checker=check_safety,
     ).to(device)
 
     pipeline.scheduler = get_scheduler(scheduler, config=pipeline.scheduler.config)
