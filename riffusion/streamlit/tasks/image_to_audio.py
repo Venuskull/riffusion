@@ -5,7 +5,7 @@ import streamlit as st
 from PIL import Image
 
 from riffusion_local.spectrogram_params import SpectrogramParams
-from streamlit import util as streamlit_util
+from util_local import util as streamlit_util
 from util_local.image_util import exif_from_image
 
 
