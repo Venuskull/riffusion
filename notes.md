@@ -13,6 +13,12 @@ Or replace transients with real drum samples
 Possibly arrange segments of instruments
 
 Make sure for instruments to add distortion to it for dnb/dubstep/808 bass sounds
+
+Try the Google audio upsample/scale project
+    - https://github.com/kuleshov/audio-super-res
+    - https://github.com/mindslab-ai/nuwave2
+    - maybe https://neural.love/audio
+
 Can make instruments part of the sample generation algorithm
 Can add chopped non transients instruments and put them into the pattern loop generator
 
